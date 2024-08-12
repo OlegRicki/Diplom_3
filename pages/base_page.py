@@ -1,3 +1,5 @@
+import re
+
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -42,3 +44,9 @@ class BasePage:
 
     def get_text_element(self, locator):
         return self.wait.until(ec.visibility_of_element_located(locator)).text
+
+    def browser_refresh(self):
+        self.driver.refresh()
+
+    def wait_numbers_to_element(self, locator):
+        self.wait.until(ec.presence_of_element_located(locator), re.compile(r'\d+'))

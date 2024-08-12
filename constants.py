@@ -1,5 +1,6 @@
 class Constants:
     BASE_URL = 'https://stellarburgers.nomoreparties.site'
+    BASE_API_URL = 'https://stellarburgers.nomoreparties.site/api/'
     LOGIN_URL = 'https://stellarburgers.nomoreparties.site/login'
     FORGOT_PASSWORD = 'https://stellarburgers.nomoreparties.site/forgot-password'
     RESET_PASSWORD = 'https://stellarburgers.nomoreparties.site/reset-password'

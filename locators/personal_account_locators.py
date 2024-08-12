@@ -8,4 +8,6 @@ class PersonalAccountLocators:
     EXIT_BUTTON = (By.XPATH, '//button[text()="Выход"]')
     BUTTON_LOG_OUT = (By.XPATH, '//button[text()="Выход"]')
     INPUT_EMAIL_FIELD = (By.XPATH, '(//input[contains(@class, "text input")])[1]')
+    NAME_FIRST_ORDER = (By.XPATH, '(//a[contains('
+                                  '@class, "OrderHistory_link__1iNby")])[1]//h2[contains(@class, "text ")]')
 
