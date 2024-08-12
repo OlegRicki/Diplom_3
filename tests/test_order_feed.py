@@ -53,8 +53,3 @@ class TestOrderFeed:
         number_order = '#0' + str(number_order)
         number_in_progress = order_page.get_number_order_in_progress()
         assert number_order == number_in_progress
-
-    # def test_rt(self):
-    #     from api.api_base import ApiBase
-    #     ApiBase().delete_user(
-    #         access_token='Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YmE2ZjI3OWVkMjgwMDAxYjQ4Y2ZjOCIsImlhdCI6MTcyMzQ5NDIxOCwiZXhwIjoxNzIzNDk1NDE4fQ.Jf07v1ZV_uyJv412xJS2-MURnJ6kVJHuJ2IHmYelwwk')
