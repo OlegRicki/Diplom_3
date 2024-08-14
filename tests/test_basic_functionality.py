@@ -49,3 +49,4 @@ class TestBasicFunctionality:
         main_page.open_main_page()
         main_page.place_order()
         assert main_page.check_place_order()
+

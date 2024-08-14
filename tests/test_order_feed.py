@@ -11,6 +11,7 @@ class TestOrderFeed:
         order_page.open_order_feed()
         order_page.click_to_order()
         assert order_page.check_displayed_order_details()
+
     @allure.title('Тест на отображение заказа пользователя на странице "Дента заказов"')
     def test_displayed_user_order_inorder_feed(self, create_user_and_authorization, create_order, driver):
         order_page = OrderFeedPage(driver)

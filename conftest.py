@@ -1,7 +1,5 @@
 import pytest
-from selenium import webdriver
-from selenium.webdriver.remote.webdriver import WebDriver
-from selenium.webdriver.chrome.options import Options
+from browser_factory import BrowserFactory
 from pages.login_page import LoginPage
 from api.api_base import ApiBase
 from generations import generate_user_name
@@ -13,12 +11,10 @@ test_email = 'oleqrezni4enko@yandex.ru'
 test_password = 'olegoleg'
 
 
-@pytest.fixture(scope='session')
-def driver():
-    browser_options = Options()
-    browser_options.add_argument("start-maximized")
+@pytest.fixture(scope='session', params=['chrome', 'firefox'])
+def driver(request):
+    driver = BrowserFactory.get_browser(request.param)
 
-    driver = webdriver.Chrome(options=browser_options)
     driver.get(constants.BASE_URL)
     yield driver
     driver.quit()
