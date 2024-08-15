@@ -17,9 +17,6 @@ class BasePage:
     def click_to_element(self, locator):
         self.wait.until(ec.element_to_be_clickable(locator)).click()
 
-    def wait_displayed_element(self, locator):
-        self.wait.until(ec.visibility_of_element_located(locator))
-
     def check_displayed_element(self, locator) -> bool:
         return self.wait.until(ec.visibility_of_element_located(locator)).is_displayed()
 
@@ -41,9 +38,6 @@ class BasePage:
         self.actions.move_to_element(target_element)
         self.actions.release(target_element)
         self.actions.perform()
-
-    def get_text_element(self, locator):
-        return self.wait.until(ec.visibility_of_element_located(locator)).text
 
     def browser_refresh(self):
         self.driver.refresh()

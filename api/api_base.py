@@ -1,3 +1,4 @@
+import allure
 import requests
 from constants import Constants
 
@@ -6,6 +7,7 @@ constants = Constants()
 
 class ApiBase:
 
+    @allure.step('Создать нового пользователя по api')
     def create_new_user(self, username: str, email: str, password: str):
         url = constants.BASE_API_URL + 'auth/register'
         response = requests.post(url, json={'email': email, 'password': password, 'name': username})
@@ -65,3 +67,9 @@ class ApiBase:
             return response.json()['order']['number']
         else:
             raise Exception(response.status_code, response.text)
+
+    @allure.step('Отправить запрос на авторизацию пользователя')
+    def login(self, login: str, password: str):
+        url = constants.BASE_API_URL + 'auth/login'
+        response = requests.post(url, json={'email': login, 'password': password})
+        return response
