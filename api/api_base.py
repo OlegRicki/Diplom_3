@@ -15,7 +15,7 @@ class ApiBase:
             return email, password, response.json().get('accessToken')
         else:
             raise Exception(response.status_code, response.text)
-
+    @allure.step('Удалить пользователя по api')
     def delete_user(self, access_token: str):
         url = constants.BASE_API_URL + 'auth/user'
 
@@ -31,6 +31,7 @@ class ApiBase:
         else:
             raise Exception(response.status_code, response.text)
 
+    @allure.step('Получить данные ингридиента по api')
     def get_data_ingredients(self):
         url = constants.BASE_API_URL + 'ingredients'
         response = requests.get(url)
@@ -39,12 +40,14 @@ class ApiBase:
         else:
             raise Exception(response.json())
 
+    @allure.step('Получить id ингридиента по api')
     def get_id_ingredient_from_ingredients_by_name(self, ingredients, name_ingredient: str) -> str:
         ingredients = ingredients['data']
         for ingredient in ingredients:
             if ingredient['name'] == name_ingredient:
                 return ingredient['_id']
 
+    @allure.step('Создать заказ пол api')
     def create_order_authorization_user(self, access_token: str):
 
         ingredients = self.get_data_ingredients()
